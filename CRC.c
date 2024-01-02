@@ -2,7 +2,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 int main(){
-    int i,j,temp,remainder[10], message[10],div[10],quotient[10],l,k;// l=length of message, k=length of divisor(key)
+    int i,j,temp,remainder[50], message[50],div[50],quotient[50],l,k, newMessage[50];// l=length of message, k=length of divisor(key)
 
     printf("Enter length of message: ");
     scanf("%d",&l);
@@ -14,8 +14,11 @@ int main(){
     printf("Enter key(divisor): ");
     for(i=0;i<k;i++)
         scanf("%d",&div[i]);
-    for(i=l;i<10;i++)
+    // To append k-1 0 to the message
+    for(i=l;i<50;i++)
         message[i]=0;
+    
+    // Binary division of the message 
     for(i=0;i<l;i++)
     {
         temp=i;
@@ -37,14 +40,37 @@ int main(){
         else
             quotient[i]=0;
     }
+
+    // Show Quotient and Remainder
     printf("Quotient is ");
     for(j=0;j<l;j++){
         printf("%d",quotient[j]);
     }
-    printf("\nRemainder is ");
+    printf("\nRemainder = CRC is ");
     for(j=0;j<k;j++)
     {
         printf("%d",remainder[j]);
     }
+
+
+    /*
+    
+    // Trasmitted message = newMessage = original message + CRC
+    for(i=0;i<l;i++)
+        newMessage[i]=message[i];
+    for(i=l;i<50;i++)
+    {
+        int j=1;
+        newMessage[i]=remainder[j+1];
+        j++;
+    }
+
+    // Show transmitted message
+    for(i=0;i<50;i++)
+        printf("%d",newMessage[i]);
+
+    
+    */
+
     return 0;
 }
