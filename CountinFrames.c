@@ -1,4 +1,5 @@
 #include<stdio.h>
+//Program on Counting Number of frames
 #include<conio.h>
 int main(){
     int n,m,count=0;
@@ -6,13 +7,13 @@ int main(){
     scanf("%d",&m);
     for(int i=0;i<m;i++)
     {
-        printf("Enter no. of data in frames: ",i+1);
+        printf("Enter no. of data in frames %d: ",i+1);
         scanf("%d",&n);
-        char frame[n];
         count+=n;
-        printf("Enter data is frame %d :  ",i++);
+        char frame[n];
+        printf("Enter data in frame %d :  ",i+1);
         for(int j=0;j<n;j++){
-            scanf("%d",&frame[i]);
+            scanf("%s",&frame[i]);
         }
     }
     printf("no. of data in frame is %d",count);
